@@ -1,0 +1,59 @@
+.slider {
+  display: flex;
+  flex-direction: column;
+
+  &__text {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__heading {
+    width: 30%;
+    font-family: "Gilroy", "Arial", sans-serif;
+    font-weight: bold;
+    font-size: 47px;
+    line-height: 57px;
+    color: #070707;
+  }
+
+  &__info {
+    display: block;
+    align-self: flex-end;
+    width: 25%;
+    padding-bottom: 44px;
+    font-family: "Gilroy", "Arial", sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21px;
+    color: #070707;
+  }
+
+  &__img {
+    width: 100%;
+  }
+
+  &__navigation {
+    padding-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &__nav-btn {
+    border: none;
+    outline: none;
+    background: transparent;
+    transition: 0.5s;
+    cursor: pointer;
+  }
+
+  &__pagination-button {
+    width: 10px;
+    height: 10px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.5s;
+  }
+}

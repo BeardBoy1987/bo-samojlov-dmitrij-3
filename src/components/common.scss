@@ -1,0 +1,44 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+fieldset {
+  border: none;
+}
+
+:focus,
+:hover,
+:disabled {
+  outline: none;
+}
+
+:active {
+  text-decoration: none;
+  border-bottom: none;
+}
+
+.container {
+  display: flex;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+@import "./header/header";
+@import "./slider/slider";
+@import "./about-me/about-me";
+@import "./footer/footer";
