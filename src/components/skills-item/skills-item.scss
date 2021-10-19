@@ -1,0 +1,41 @@
+.skills {
+  &__list-item {
+    display: flex;
+    flex-direction: column;
+    padding: 0 50px;
+  }
+
+  &__list-img {
+  }
+
+  &__name {
+    font-family: "Gilroy", "Arial", sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #828282;
+    margin-top: 20px;
+  }
+
+  &__progress-bar {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__percent {
+    font-family: "Gilroy", "Arial", sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+    color: #828282;
+    margin-top: 28px; 
+  }
+
+  &__progress {
+    margin-top: 28px;
+    height: 9px;
+    width: 114px;
+    border: 1px solid;
+  }
+}
