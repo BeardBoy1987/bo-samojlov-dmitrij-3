@@ -2,10 +2,10 @@
   &__list-item {
     display: flex;
     flex-direction: column;
+    align-items: center;
     padding: 0 50px;
-  }
-
-  &__list-img {
+    width: 180px;
+    height: 168px;
   }
 
   &__name {
@@ -29,13 +29,35 @@
     font-size: 14px;
     line-height: 17px;
     color: #828282;
-    margin-top: 28px; 
+    margin-top: 23px;
+    padding-right: 12px;
   }
 
   &__progress {
+    background-color: #E5E5E5;;
     margin-top: 28px;
     height: 9px;
     width: 114px;
-    border: 1px solid;
+    border: none;
+
+    &--html {
+      background: linear-gradient(to right, #070707 85%,#E5E5E5 15%);
+    }
+
+    &--css {
+      background: linear-gradient(to right, #070707 55%,#E5E5E5 45%);
+    }
+
+    &--js {
+      background: linear-gradient(to right, #070707 10%,#E5E5E5 5%);
+    }
+
+    &--git {
+      background: linear-gradient(to right, #070707 15%,#E5E5E5 5%);
+    }
+
+    &--figma {
+      background: linear-gradient(to right, #070707 80%,#E5E5E5 20%);
+    }
   }
 }
