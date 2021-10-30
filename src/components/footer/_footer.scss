@@ -1,0 +1,90 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 60px;
+
+  &__heading {
+    font-family: "Gilroy", "Arial", sans-serif;
+    font-weight: bold;
+    text-align: center;
+    font-size: 34px;
+    line-height: 41px;
+    color: #070707;
+  }
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+
+  &__description {
+    font-family: "Gilroy", "Arial", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    color: #070707;
+    width: 78%;
+    padding-left: 120px;
+    margin-top: 0;
+  }
+}
+
+.link-cloud {
+  display: flex;
+  margin: 0 auto;
+  width: 42%;
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    padding: 15px 5px 24px;
+  }
+
+  &__link {
+    border: 3px solid #070707;
+    border-radius: 30px;
+    background: transparent;
+    font-family: "Gilroy", "Arial", sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #070707;
+    padding: 10px 29px 10px 29px;
+  }
+}
+
+.additional-info {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+
+  &__design {
+    font-family: "Gilroy", "Arial", sans-serif;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    color: #828282;
+  }
+
+  &__link {
+    border-bottom: 1px dashed #828282;
+  }
+
+  &__code {
+    font-family: "Gilroy", "Arial", sans-serif;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: #828282;
+    margin-top: 0;
+    margin-bottom: 60px;
+  }
+}

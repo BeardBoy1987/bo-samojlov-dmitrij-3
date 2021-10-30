@@ -1,4 +1,8 @@
 .skills {
+  &__list {
+    flex-wrap: wrap;
+  }
+
   &__list-item {
     display: flex;
     flex-direction: column;

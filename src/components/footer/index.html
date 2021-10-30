@@ -1,1 +1,31 @@
-
+<footer class="footer container">
+  <h2 class="footer__heading">Contacts</h2>
+  <div class="contact-info">
+    <p class="contact-info__description">Want to know more or just chat?
+      You are welcome!</p>
+    @@include('button/index.html', {
+    text:"Send message",
+    class:"contact-info__send-btn"
+    })
+  </div>
+  <div class="link-cloud">
+    <ul class="link-cloud__list">
+      <li class="link-cloud__item"><a href="https://www.instagram.com/" class="link-cloud__link">Instagram</a></li>
+      <li class="link-cloud__item"><a href="https://vk.com/" class="link-cloud__link">Vk</a></li>
+      <li class="link-cloud__item">
+        <a href="https://telegram.org/" class="link-cloud__link">Telegram</a>
+      </li>
+      <li class="link-cloud__item"><a href="https://mail.google.com/" class="link-cloud__link">Mail</a></li>
+      <li class="link-cloud__item">
+        <a href="https://github.com/" class="link-cloud__link">GitHub</a>
+      </li>
+      <li class="link-cloud__item">
+        <a href="tel:+79171387258" class="link-cloud__link">Phone</a>
+      </li>
+    </ul>
+  </div>
+  <div class="additional-info">
+    <p class="additional-info__design">Design by <a href="https://directline.digital/" class="additional-info__link">DL Academy</a></p>
+    <p class="additional-info__code">Program code from Dmitriy</p>
+  </div>
+</footer>
