@@ -1,228 +1,103 @@
-// let userName = prompt("Как вас зовут?");
-// let userSurname = prompt("Ваша фамилия?");
-// let userAge = prompt("Сколько вам лет?");
+// swiper slider
 
-// alert(userName);
-// alert(userSurname);
-// alert(userAge);
+const swiper = new Swiper('.swiper', {
+  direction: 'horizontal',
+  loop: true,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+});
 
-// let userPersonalInfo = {
-//   name: userName,
-//   surname: userSurname,
-//   age: userAge
-// };
+// selfmade slider
 
-// console.log(userPersonalInfo);
+const wrapper = document.querySelector(".selfmade-slider__wrapper");
+const innerWrapper = document.querySelector(".selfmade-slider__inner-wrapper");
+const prevBtn = document.querySelector(".prev-btn-js");
+const nextBtn = document.querySelector(".next-btn-js");
+const dotPagination = document.querySelector(".selfmade-slider__pagination");
 
-// CYCLE HOMEWORK
+const slides = document.querySelectorAll(".selfmade-slider__slide");
+const numberOfSlides = slides.length;
+const slideWidth = 1000;
 
-// FIRST TASK
+let activeSlide = 0;
 
-// let i = prompt("Введите число");
-// let n = 0;
+innerWrapper.style.transition = "margin-left 1s";
 
-// while (n++ < i) {
-//   if (Number.isInteger(n / 4)) continue;
-// else {
-//     console.log(n)
-//   }
-// }
+const changeActiveSlide = (direction) => {
+  const initialMarginLeft = Number(getComputedStyle(innerWrapper).marginLeft.split("px")[0]);
 
-// SECOND TASK
-
-// let i = prompt("Введите число");
-// let n = 1;
-
-// while(i) n *= (i--);
-// console.log(n);
-
-// THIRD TASK
-
-// let i = prompt("Введите число");
-// let n = prompt("Введите степень");
-// let result = (Math.pow(i, n));
-
-// i, n = Number(i, n);
-
-// for (i, n; ; result) {
-//   console.log(result)
-//   break;
-// }
-
-// TEST
-
-// if (isNaN(i, n)) {
-//   alert("Недопустимые символы")
-// }
-// if (i,n == "") {
-//   alert("Empty")
-// }
-// if (i,n < 0) {
-//   alert("Значение не может быть отрицательным")
-// }
-
-// FOURTH TASK
-
-// let rand = Math.floor(1 + Math.random() * 10);
-// console.log(rand);
-
-// while (true) {
-//   let i = +prompt("Введите число");
-//   if  (i === rand) {
-//   alert("Угадал!")
-//   break;
-// }
-// }
-
-// FUNCTION HOMEWORK
-
-// FIRST TASK
-
-// function ageVerification() {
-//   let age = prompt("Введите свой возраст");
-//   if (+age < 18) {
-//     alert("Вам меньше 18 лет!");
-//     ageVerification();
-//   } else {
-//     alert("Проверка пройдена!");
-//   }
-// };
-// ageVerification();
-
-// SECOND TASK
-
-// function add(a, b) {
-//   return a + b;
-// }
-
-// function subtract(a, b) {
-//   return a - b;
-// }
-
-// function divide(a, b) {
-//   return a / b;
-// }
-
-// function multiply(a, b) {
-//   return a * b;
-// }
-
-// THIRD TASK
-
-// function addCreator(a) {
-//   return (b) => {
-//     return a + b
-//   }
-// }
-
-// console.log(addCreator(1)(3))
-
-// const add = addCreator(5)
-// console.log(add(5));
-
-
-
-// FOURTH TASK
-
-// function counterCreater(step=2) {
-//   let index = 0;
-
-//   return function counter() {
-//     index += step; return index;
-//   };
-// }
-
-// let myCounter1 = counterCreater(-1);
-// console.log(myCounter1());
-// console.log(myCounter1());
-
-// let myCounter2 = counterCreater(4);
-// console.log(myCounter2());
-// console.log(myCounter2());
-
-// let myCounter3 = counterCreater(2);
-// console.log(myCounter3());
-// console.log(myCounter3());
-
-
-// ARRAY HOMEWORK
-let index = 10;
-
-function counterCreater(step) {
-  return function counter() {
-    index += step;
-    return index;
-  };
-}
-
-let myCounter = counterCreater(-1)
-
-function log(value) {
-  console.log(value);
-}
-let interval = setInterval(function () {
-  log(myCounter() + " " + "Ожидание...");
-  if (index === 0) {
-        clearInterval(interval)
+  switch (direction) {
+    case "prev":
+      if (activeSlide !== 0) {
+        innerWrapper.style.marginLeft = `${initialMarginLeft + slideWidth}px`;
+        activeSlide -= 1;
+        nextBtn.removeAttribute("disabled");
+        changeActiveDot(activeSlide)
+      } else if (activeSlide === 0) {
+        prevBtn.setAttribute("disabled", "disabled");
       }
-}, 1000);
-
-// developers - авторя ЯП
-// name - имя автора
-// work - род деятельности автора
-const developers = [{
-    index: 0,
-    name: "Брендан Эйх",
-    work: "специалист в области информатики, программист, технический директор"
-  },
-  {
-    index: 2,
-    name: "Джеймс Гослинг",
-    work: "специалист в области информационных технологий"
-  },
-  {
-    index: 3,
-    name: "Бьёрн Страуструп",
-    work: "программист"
+      break;
+    
+    case "next":
+      if (activeSlide !== numberOfSlides - 1) {
+        innerWrapper.style.marginLeft = `${initialMarginLeft - slideWidth}px`;
+        activeSlide += 1;
+        prevBtn.removeAttribute("disabled");
+        changeActiveDot(activeSlide)
+      } else if (activeSlide === numberOfSlides - 1) {
+        nextBtn.setAttribute("disabled", "disabled");
+      }
+      break;
+    
+    default:
   }
-]
+};
 
-let brandon = developers.filter(item => item.name === "Брендан Эйх")
+const changeActiveDot = (index) => {
+  const activeDot = "selfmade-slider__dot--active";
+  const currentActiveDot = document.querySelector(`.${activeDot}`);
+  currentActiveDot.classList.remove(activeDot);
 
-brandon = {};
-[brandon.index, brandon.name, brandon.work] = ["0", "Брендан Эйх", "специалист в области информатики, программист, технический директор"];
-console.log(brandon.name)
+  dotPagination.children[index].classList.add(activeDot)
 
+  if (activeDot !== numberOfSlides[0]) {
+    prevBtn.removeAttribute("disabled");
+  }
 
-// data - ЯП про которые должны быть рассказы
-// name - название ЯП
-// year - год выпуска ЯП
-// filenameExtensions -расширения файлов
-// influencedBy - ЯП оказавшие влияние
-// affectedBy - ЯП испытавшие влияние ЯП
-// developerIndex - уникальный идентификатор автора языка программирования
-const data = [{
-    name: "JavaScript",
-    year: 1995,
-    filenameExtensions: "js, mjs",
-    influencedBy: ["AWK", "C", "HyperTalk", "Java", "Lua", "Perl", "Python", "Scheme", "Self"],
-    affectedBy: ["ActionScript", "AtScript", "CoffeeScript", "Dart", "JScript .NET", "LiveScript", "Objective-J", "Opa", "QML", "Raku", "TypeScript"],
-    developerIndex: 0,
-  },
-  {
-    name: "Java",
-    year: 1995,
-    filenameExtensions: "java, class, jar, jad, jmod",
-    influencedBy: ["C++", "Си", "Ада", "Simula 67", "Smalltalk", "Objective-C", "Object Pascal", "Оберон", "Eiffel", "Модула-3", "Mesa", "Симула", "C#", "UCSD Pascal"],
-    affectedBy: ["Ada 2005", "BeanShell", "C#", "Chapel", "Clojure", "ECMAScript", "Fantom", "Gambas", "Groovy", "Hack", "Haxe", "J#", "Kotlin", "PHP", "Python", "Scala", "Seed7", "Vala"],
-    developerIndex: 2,
-  },
-  {
-    name: "C++",
-    year: 1983,
-    filenameExtensions: "cc, cpp, cxx, c, c++, h, hpp, hh, hxx, h++",
-    influencedBy: ["C++", "Си", "Ада", "Simula 67", "Smalltalk", "Objective-C", "Object Pascal", "Оберон", "Eiffel", "Модула-3", "Mesa", "Симула", "C#", "UCSD Pascal"],
-    affectedBy: ["Ada", "C", "Modula-2", "Simula"],
-    developerIndex: 3,
-  },
-];
+  if (activeSlide === 0) {
+    prevBtn.setAttribute("disabled", "disabled");
+  }
+
+  if (activeSlide === numberOfSlides - 1) {
+    nextBtn.setAttribute("disabled", "disabled");
+  }
+
+  if (index === 0) {
+    nextBtn.removeAttribute("disabled");
+  }
+
+  if (index === numberOfSlides - 1) {
+    prevBtn.removeAttribute("disabled");
+  }
+
+}
+
+for (let i = 0; i < innerWrapper.children.length; i++) {
+  let dot = document.createElement("button");
+  i === activeSlide
+    ? dot.classList.add("selfmade-slider__dot", "selfmade-slider__dot--active")
+    : dot.classList.add("selfmade-slider__dot");
+  
+  const activeIndex = i;
+  dot.addEventListener('click', () => {
+    innerWrapper.style.marginLeft = `-${activeIndex * slideWidth}px`;
+    activeSlide = activeIndex;
+    changeActiveDot(activeIndex)
+  })
+  dotPagination.append(dot)
+};
+
+prevBtn.addEventListener('click', () => changeActiveSlide("prev"));
+nextBtn.addEventListener('click', () => changeActiveSlide("next"));

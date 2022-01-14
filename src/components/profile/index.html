@@ -1,0 +1,26 @@
+<section class="profile container">
+  <h1 class="profile__heading">My profile</h1>
+  <div class="profile-info">
+    <img class="profile-info__img" src="/static/images/profile_no_img.png">
+    <ul class="profile-info__list">
+      <li class="profile-info__item">Name:</li>
+      <li class="profile-info__item">Surname:</li>
+      <li class="profile-info__item">Email:</li>
+      <li class="profile-info__item">Password:</li>
+      <li class="profile-info__item">Location:</li>
+      <li class="profile-info__item">Age:</li>
+    </ul>
+    @@include('button/index.html', {
+    text:"Change password",
+    class:"profile__btn"
+    })
+    @@include('button/index.html', {
+    text:"Change other data",
+    class:"profile__btn"
+    })
+    @@include('button/index.html', {
+    text:"Delete account",
+    class:"profile__btn"
+    })
+  </div>
+</section>

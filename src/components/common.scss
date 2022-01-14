@@ -38,11 +38,26 @@ fieldset {
   margin: 0 auto;
 }
 
+.swiper {
+  width: 1000px;
+  height: 604px;
+  margin-bottom: 60px;
+}
+
+.swiper-button-next {
+  color: #070707;
+}
+.swiper-button-prev {
+  color: #070707;
+}
+
 @import "./header/header";
-@import "./slider/slider";
+@import "./general-info/general-info";
 @import "./about-me/about-me";
 @import "./footer/footer";
 @import "./skills/skills";
 @import "./skills-item/skills-item.scss";
 @import "./portfolio/portfolio";
 @import "./button/button";
+@import "./profile/profile";
+@import "./sign-in-modal/sign-in-modal";

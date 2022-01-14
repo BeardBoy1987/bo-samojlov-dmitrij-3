@@ -1,0 +1,33 @@
+.profile {
+  margin-top: 40px;
+
+  &__heading {
+    font-family: "Gilroy", "Arial", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 47px;
+    line-height: 57px;
+    color: #070707;
+  }
+}
+
+.profile-info {
+  display: flex;
+  
+  margin-top: 140px;
+  margin-left: 10px;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__item {
+    font-family: "Gilroy", "Arial", sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    color: #070707;
+    padding-top: 20px;
+  }
+}
