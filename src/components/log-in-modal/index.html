@@ -1,0 +1,19 @@
+<div class="log-in-wrapper">
+  <form class="log-in">
+
+    <fieldset class="log-in__input-wrap">
+      <label class="log-in__label" for="email">Email</label>
+      <input class="log-in__input" name="email" type="text" id="email" />
+    </fieldset>
+
+    <fieldset class="log-in__input-wrap">
+      <label class="log-in__label" for="password">Password</label>
+      <input class="log-in__input" name="password" type="text" id="password" />
+    </fieldset>
+
+    @@include('button/index.html', {
+    text:"Log in",
+    class:"log-in__btn"
+    })
+  </form>
+</div>

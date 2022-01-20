@@ -23,7 +23,8 @@ const slideWidth = 1000;
 
 let activeSlide = 0;
 
-innerWrapper.style.transition = "margin-left 1s";
+innerWrapper.style.transition = "margin-left 0.5s";
+
 
 const changeActiveSlide = (direction) => {
   const initialMarginLeft = Number(getComputedStyle(innerWrapper).marginLeft.split("px")[0]);
@@ -101,3 +102,4 @@ for (let i = 0; i < innerWrapper.children.length; i++) {
 
 prevBtn.addEventListener('click', () => changeActiveSlide("prev"));
 nextBtn.addEventListener('click', () => changeActiveSlide("next"));
+
